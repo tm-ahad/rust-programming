@@ -1,3 +1,6 @@
+mod variables_mutabillity;
+pub(crate) use variables_mutabillity::infinite_loop;
+
 fn main() {
-    println!("Hello, world!");
+    infinite_loop(); //infinite loop ♾!
 }
