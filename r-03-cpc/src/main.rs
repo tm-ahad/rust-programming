@@ -21,3 +21,11 @@
 // }
 
 //ot
+mod function;
+pub(crate) use function::check_even;
+
+fn main() {
+    let u: u32 = 500;
+
+    println!("{}", check_even(u));
+}
