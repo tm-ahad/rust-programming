@@ -21,11 +21,23 @@
 // }
 
 //ot
-mod function;
-pub(crate) use function::check_even;
+// mod function;
+// pub(crate) mod ifelse;
+//
+// pub(crate) use function::check_even;
+//
+// fn main() {
+//     let u: u32 = 500;
+//
+//     println!("{}", check_even(u));
+// }
+
+mod ifelse;
+pub(crate) use ifelse::guess;
 
 fn main() {
-    let u: u32 = 500;
 
-    println!("{}", check_even(u));
+    for i in 0..3 {
+        println!("{}", guess(i));
+    }
 }
