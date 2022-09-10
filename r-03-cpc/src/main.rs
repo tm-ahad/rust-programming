@@ -10,11 +10,14 @@
 // }
 
 //data_type
-mod data_types;
+// mod data_types;
+// mod other_data_types;
+//
+// pub(crate) use data_types::{dt};
+//
+// fn main() {
+//
+//     dt(); //printing 🖨️...
+// }
 
-pub(crate) use data_types::{dt};
-
-fn main() {
-
-    dt(); //printing 🖨️...
-}
+//ot
