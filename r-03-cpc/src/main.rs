@@ -45,13 +45,27 @@
 //     }
 // }
 
-mod while_loop;
+//while loop
 
-pub(crate) use while_loop::while_loop;
+// mod while_loop;
+// mod recursion;
+//
+// pub(crate) use while_loop::while_loop;
+// pub(crate) use recursion::fact;
+//
+// fn main() {
+//     let vec: Vec<&str> = vec!["Banana", "Orange", "Apple", "Mango"];
+//
+//     while_loop(vec, 3);
+//
+// }
+
+//recursion
+mod recursion;
+pub(crate) use recursion::fact;
 
 fn main() {
-    let vec: Vec<&str> = vec!["Banana", "Orange", "Apple", "Mango"];
+    let num: i32 = 12;
 
-    while_loop(vec, 3);
+    print!("{}", fact(num));
 }
-
