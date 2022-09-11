@@ -32,12 +32,26 @@
 //     println!("{}", check_even(u));
 // }
 
-mod ifelse;
-pub(crate) use ifelse::guess;
+//if..else statement
+
+// mod ifelse;
+//
+// pub(crate) use ifelse::guess;
+//
+// fn main() {
+//
+//     for i in 0..3 {
+//         println!("{}", guess(i));
+//     }
+// }
+
+mod while_loop;
+
+pub(crate) use while_loop::while_loop;
 
 fn main() {
+    let vec: Vec<&str> = vec!["Banana", "Orange", "Apple", "Mango"];
 
-    for i in 0..3 {
-        println!("{}", guess(i));
-    }
+    while_loop(vec, 3);
 }
+
