@@ -33,13 +33,28 @@
 //     }
 // }
 
-mod r#impl;
-pub use r#impl::{Square, Color};
+//impl
+
+// mod r#impl;
+// mod r#trait;
+//
+// pub use r#impl::{Square, Color};
+//
+// fn main() {
+//     let sqr1: Square = Square::create(5, String::from("Tah-mid"), Color::Red);
+//
+//     println!("{:?}", sqr1);
+//
+//     println!("height={}", sqr1.height);
+//     println!("area={}", sqr1.get_area());
+// }
+mod r#trait;
+pub use r#trait::Rectangle;
+use crate::r#trait::{Color, Common};
+
 
 fn main() {
-    let sqr1: Square = Square::create(5, String::from("Tah-mid"), Color::Red);
+    let rect1 = Rectangle::create(5, 6, Color::Red, "Tah-mid".to_string());
 
-    println!("{:?}", sqr1);
-
-    println!("area={}", sqr1.get_area());
+    println!("rect1={:?}", rect1)
 }

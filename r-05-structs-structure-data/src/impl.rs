@@ -1,17 +1,4 @@
 
-#[derive(Debug)]
-pub enum Color {
-    Red,
-    Green,
-    Blue,
-    Yellow,
-    Black,
-    White,
-    Brown,
-    Chocolate,
-    Pink,
-    Violet
-}
 
 #[derive(Debug)]
 pub struct Square {
@@ -31,6 +18,8 @@ impl Square {
     }
 
     pub fn get_area(&self) -> i128 {
+
         return self.height * self.height;
     }
+
 }
