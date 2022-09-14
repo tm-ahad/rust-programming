@@ -1,7 +1,7 @@
 #[derive(Debug)]
 pub enum MarvelSuperHeroes {
     SpiderMan(Spidey),
-    Venom(VenomHost),
+    Venom { host: VenomHost },
     Hulk,
     DeadPool
 }
