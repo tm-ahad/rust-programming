@@ -13,13 +13,8 @@ fn main() {
         _ => {}
     }
 
-    //You can watch the Venom movie
-
     match venom {
         MarvelSuperHeroes::Venom(host) => println!("{:?} is venom", host),
         _ => {}
     }
-
-    //which universe's superhero do you like DC or Marvel
-    //I like DC 👍👍
 }
