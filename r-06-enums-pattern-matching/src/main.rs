@@ -30,6 +30,7 @@ use crate::option::understand_option;
 
 //option
 mod option;
+mod r#enum;
 
 fn main() {
     understand_option()
