@@ -88,10 +88,33 @@ fn main() {
 
         println!("i - {}", i);
     }
+    println!("{}\n", "");
 
     //There are many Methods available in vector-
     //reverse
     //remove
     //replace
     //repeat
+
+    //HashMap
+
+    use std::collections::HashMap;
+
+    let mut scores = HashMap::new();
+    let print_hash_map = |mut hash_map: HashMap<String, i32>| {
+
+        for (key, value) in &mut hash_map {
+            println!("h {} -> {}", key, value);
+        }
+    };
+
+    scores.insert(String::from("Blue"), 10);
+
+    scores.entry(String::from("Yellow")).or_insert(50);
+    scores.entry(String::from("Blue")).or_insert(50);
+    scores.entry(String::from("Green")).or_insert(80);
+    scores.remove("Blue");
+
+
+    print_hash_map(scores);
 }
