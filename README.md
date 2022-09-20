@@ -3,4 +3,4 @@ Rust is a multi-paradigm, general-purpose programming language. Rust emphasizes 
 * **Installation:** https://www.rust-lang.org/tools/install
 * **Documentation:** https://doc.rust-lang.org/book/
 * **Documentation:** https://doc.rust-lang.org/rust-by-example/index.html
-* **Visit us:** https://www.sunitltd.net
+* **Visit us:** https://www.sunitlimited.com
