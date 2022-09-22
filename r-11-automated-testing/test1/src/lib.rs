@@ -12,7 +12,7 @@ impl Rectangle
     {
         return Self
         {
-            id: id,
+            id,
             height: h,
             width: w
         };
