@@ -1,90 +1,55 @@
-use crate::yaml_parser::{YamlValues, YamlObj};
+use crate::another::{mean, sqr};
+use crate::arth_operator::{add, devide, minus, multiply};
 
-mod yaml_parser
+pub mod arth_operator
 {
-
-    #[derive(Clone)]
-    #[derive(Debug)]
-    pub struct YamlObj
+    pub fn add(x: i32, y: i32) -> i32
     {
-        pairs: Vec<(Option<String>, Option<YamlValues>)>
+        x + y
     }
 
-    impl YamlObj
+    pub fn minus(x: i32, y: i32) -> i32
     {
-        pub fn new(pair: Vec<(Option<String>, Option<YamlValues>)>) -> Self
-        {
-            Self
-            {
-                pairs: pair
-            }
-        }
-
-        // pub fn get(&self, k: String)
-        // {
-        //
-        //     return match self.clone().pairs
-        //     {
-        //         Some(v) =>
-        //             {
-        //                 for pairs in v.iter()
-        //                 {
-        //                     Some(YamlValues::String("".to_string()));
-        //                 }
-        //                 Some(YamlValues::String("".to_string()));
-        //             },
-        //         None => None
-        //     }
-        // }
-
-        pub fn insert(&mut self, k: String, val: YamlValues)
-        {
-            self.pairs.push((Some(k), Some(val)));
-        }
-        //
-        // pub fn del(&mut self, k: String) -> bool
-        // {
-        //     return match self.clone().pairs
-        //     {
-        //         Some(mut v) =>
-        //             {
-        //                 v.retain(|&x| x.0 != k);
-        //                 true
-        //             },
-        //         None => false
-        //     }
-        // }
-        //
-        // pub fn replace(&self, k: String, new_val: YamlValues)
-        //
-        // {
-        //     let refer = &self.get(k);
-        //
-        //     println!(refer);
-        // }
+        x - y
     }
 
-    #[derive(Clone)]
-    #[derive(Debug)]
-    pub enum YamlValues
+    pub fn devide(x: f64, y: f64) -> f64
     {
-        Int8(i8),
-        Int16(i16),
-        Int32(i32),
-        Int64(i64),
-        Int128(i128),
-        Float32(f32),
-        Float64(f64),
-        String(String),
-        Array(Box<[YamlValues]>),
-        YamlObject(YamlObj)
+        x / y
+    }
+
+    pub fn multiply(x: i32, y: i32) -> i32
+    {
+        x * y
     }
 }
 
-fn main() {
-    let mut obj = YamlObj::new(vec![]);
+pub mod another
+{
+    use crate::arth_operator::multiply;
+    pub use super::arth_operator::{add, devide};
 
-    obj.insert("c".to_string(), YamlValues::Int8(5));
+    pub fn mean(x: i32, y: i32) -> f64
+    {
 
-    println!("{:?}", obj);
+        devide(add(x, y) as f64, 2 as f64)
+    }
+
+    pub fn sqr(x: i32) -> i32
+    {
+        multiply(x, x)
+    }
+}
+
+pub fn main()
+{
+    let x = 4;
+    let y = 5;
+
+    println!("add - {}", add(x, y));
+    println!("minus - {}", minus(y, x));
+    println!("devide - {}", devide(x as f64, y as f64));
+    println!("multiply - {}", multiply(x, y));
+    println!("sqr - {}", sqr(y));
+    println!("mean - {}", mean(x, y))
 }
