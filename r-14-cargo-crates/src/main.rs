@@ -46,7 +46,7 @@ pub mod another
 
     pub fn sqr(x: i32) -> i32
     {
-        multiply(x, x)
+        multiply(x, x.clone())
     }
 }
 
