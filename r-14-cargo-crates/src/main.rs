@@ -55,7 +55,7 @@ pub fn main()
     use arth_operator::{add, minus, devide, multiply, mean};
     use another::sqr;
 
-    let x = 4;
+    let x = 6;
     let y = 5;
 
     println!("add - {}", add(x, y));
