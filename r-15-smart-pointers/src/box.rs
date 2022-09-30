@@ -13,6 +13,6 @@ pub fn understand_box()
     let b = Box::new(8);
     let list1 = Cons(8, Box::new(List::Nil));
 
-    println!("{}", b);
+    println!("{:?}", b);
     println!("{:?}", list1);
 }
