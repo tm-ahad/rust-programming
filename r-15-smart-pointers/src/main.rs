@@ -3,7 +3,9 @@ mod rc;
 mod deref;
 mod ref_cell;
 
+use std::cell::RefCell;
 use std::ops::Deref;
+use std::rc::Rc;
 pub(crate) use r#box::understand_box;
 use crate::deref::MyBox;
 use crate::rc::understand_rc;
@@ -41,4 +43,21 @@ fn main()
     drop(person_id);
 
     println!("After dropping: {:?}", person);
+
+    //RefCell + Rc
+
+    let string = String::from("Hello World!");
+    let my_ref = Rc::new(RefCell::new(string));
+
+    change_str(Rc::clone(&my_ref));
+
+    println!("str - {:?}", Rc::clone(&my_ref));
+    println!("ref_count - {}", Rc::strong_count(&my_ref));
+}
+
+pub fn change_str( refer: Rc<RefCell<String>> )
+{
+    let mut r = refer.borrow_mut();
+
+    r.push('!');
 }
