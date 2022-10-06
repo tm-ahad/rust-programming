@@ -2,6 +2,9 @@ mod r#box;
 mod rc;
 mod deref;
 mod ref_cell;
+mod r#drop;
+
+use crate::r#drop::CustomSmartPointer;
 
 use std::cell::RefCell;
 use std::ops::Deref;
@@ -53,6 +56,17 @@ fn main()
 
     println!("str - {:?}", Rc::clone(&my_ref));
     println!("ref_count - {}", Rc::strong_count(&my_ref));
+
+    //drop_trait
+
+    let a = CustomSmartPointer
+    {
+        data: "Some String".to_string()
+    };
+
+    drop(a);
+
+
 }
 
 pub fn change_str( refer: Rc<RefCell<String>> )
