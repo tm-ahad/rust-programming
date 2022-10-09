@@ -1,3 +1,4 @@
+use std::sync::mpsc;
 use std::thread;
 use std::time::Duration;
 
@@ -35,4 +36,19 @@ fn main() {
     }
 
     println!("Hi from main thread!");
+
+    //message passing between threads
+
+    println!("==========================");
+
+    let (tx, rx) = mpsc::channel();
+
+    thread::spawn(move || {
+        let val = String::from("hi");
+        tx.send(val).unwrap();
+    });
+
+    let msg = rx.recv().unwrap();
+
+    println!("{:?} received from spawned thread", msg)
 }
