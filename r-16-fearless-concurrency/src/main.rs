@@ -1,6 +1,5 @@
-use std::sync::mpsc;
+use std::sync::{Arc, mpsc, Mutex};
 use std::thread;
-use std::time::Duration;
 
 fn main() {
     //single thread
@@ -50,5 +49,29 @@ fn main() {
 
     let msg = rx.recv().unwrap();
 
-    println!("{:?} received from spawned thread", msg)
+    println!("{:?} received from spawned thread", msg);
+
+    //sharing state
+    println!("==========================");
+
+    let v: Vec<u32> = vec![9, 8, 7, 6, 5, 4, 3, 2, 1];
+
+    let counter = Arc::new(Mutex::new(v[0]));
+    let mut handles = vec![];
+
+    for val in v {
+        let counter = Arc::clone(&counter);
+        let handle = thread::spawn(move || {
+            let mut num = counter.lock().unwrap();
+
+            *num = val;
+        });
+        handles.push(handle);
+    }
+
+    for handle in handles {
+        handle.join().unwrap();
+    }
+
+    println!("Result: {}", *counter.lock().unwrap());
 }
