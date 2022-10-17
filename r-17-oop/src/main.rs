@@ -1,8 +1,10 @@
 mod lib;
 mod r#trait;
+mod oop_design_pattern;
 
 use lib::AveragedCollection;
 use crate::r#trait::{Draw, Button, Screen};
+use crate::oop_design_pattern::Post;
 
 struct SelectBox {
     width: u32,
@@ -47,4 +49,17 @@ fn main() {
     };
 
     screen.run();
+
+
+    let mut post = Post::new(String::new());
+
+    post.add("DC universe is coming with a new villain !!Black Adam!!".to_string());
+
+    println!("{}", post.content());
+    post.update("Marvel is coming with a new movie !!Venom 3!!".to_string());
+
+    println!("{}", post.content());
+
+    post.post();
+
 }
